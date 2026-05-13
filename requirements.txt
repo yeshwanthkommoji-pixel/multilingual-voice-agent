@@ -1,0 +1,6 @@
+python-dotenv
+langdetect
+gtts
+SpeechRecognition
+pyaudio
+groq
