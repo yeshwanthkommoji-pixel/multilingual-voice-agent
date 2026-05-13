@@ -6,13 +6,20 @@ load_dotenv()
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-SYSTEM_PROMPT = """You are a helpful multilingual customer support agent.
-Always reply in the SAME language the user writes in.
+def get_response(user_text: str, lang: str) -> str:
+    try:
+        if lang == "te":
+            language_instruction = "You MUST reply ONLY in Telugu language. Do not use any other language."
+        elif lang == "hi":
+            language_instruction = "You MUST reply ONLY in Hindi language. Do not use any other language."
+        else:
+            language_instruction = "You MUST reply ONLY in English language. Do not use any other language."
+
+        SYSTEM_PROMPT = f"""You are a helpful customer support agent.
+{language_instruction}
 Be friendly, concise, and helpful.
 If you cannot solve the issue, say you will connect them to a human agent."""
 
-def get_response(user_text: str) -> str:
-    try:
         response = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[

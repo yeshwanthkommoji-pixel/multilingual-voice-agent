@@ -8,6 +8,24 @@ def transcribe() -> str:
         r.energy_threshold = 300
         audio = r.listen(source, timeout=15, phrase_time_limit=10)
     print("✅ Got your voice!")
-    text = r.recognize_google(audio)
-    print(f"📝 You said: {text}")
-    return text
+
+    try:
+        # Use English India as default - works for English, Hindi and Telugu
+        text = r.recognize_google(audio, language="en-IN")
+        print(f"📝 You said: {text}")
+        return text
+    except:
+        try:
+            # Try Hindi
+            text = r.recognize_google(audio, language="hi-IN")
+            print(f"📝 You said: {text}")
+            return text
+        except:
+            try:
+                # Try Telugu
+                text = r.recognize_google(audio, language="te-IN")
+                print(f"📝 You said: {text}")
+                return text
+            except Exception as e:
+                print(f"Could not understand audio: {e}")
+                return ""
