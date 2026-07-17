@@ -1,32 +1,30 @@
-\# 🌍 Multilingual Customer Support Voice Agent
+# 🌍 Multilingual Customer Support Voice Agent
 
+A browser-based AI voice agent that transcribes your speech, replies using an LLM, and speaks the answer back — in English, Hindi, or Telugu.
 
+## Features
 
-A real-time AI voice agent that supports customers in any language!
+- 🎤 Voice input via browser microphone
+- 🤖 AI-powered replies using Groq (Llama 3.1 8B Instant)
+- 🔊 Spoken audio responses via text-to-speech
+- 💬 Supports English, Hindi, and Telugu
 
+## Live Demo
 
+https://multilingual-voice-agent-yeshwanth.streamlit.app
 
-\## Features
+## Run Locally
 
-\- 🎤 Voice input via microphone
+1. Clone this repo
+2. Run: pip install -r requirements.txt
+3. Add your GROQ_API_KEY in a .env file
+4. Run: streamlit run app.py
 
-\- 🌐 Auto language detection (50+ languages)
+## Project Structure
 
-\- 🤖 AI powered by Groq (Llama 3.1)
-
-\- 🔊 Text-to-speech audio response
-
-\- 💬 Supports English, Hindi, Telugu and 50+ languages
-
-
-
-\## Setup
-
-1\. Clone this repo
-
-2\. Run: pip install -r requirements.txt
-
-3\. Add your GROQ\_API\_KEY in .env file
-
-4\. Run: python main.py
+- app.py — the deployed web app
+- main.py — original CLI version (local microphone only)
+- agent.py — LLM response logic
+- stt.py — speech-to-text
+- tts.py — text-to-speech
 
