@@ -11,7 +11,7 @@ A browser-based AI voice agent that transcribes your speech, replies using an LL
 
 ## Live Demo
 
-https://multilingual-voice-agent-yeshwanth.streamlit.app
+https://multilingual-voice-agent-app.streamlit.app
 
 ## Run Locally
 
